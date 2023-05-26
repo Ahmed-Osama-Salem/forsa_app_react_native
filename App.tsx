@@ -18,6 +18,7 @@ import {
 import TopWaveContainer from './app/components/sections/TopWaveContainer';
 import AppLayout from './app/components/layout/AppLayout';
 import BrandListContainer from './app/components/sections/BrandListContainer';
+import OffersListContainer from './app/components/sections/OffersListContainer';
 
 // import {
 //   Colors,
@@ -70,8 +71,18 @@ function App(): JSX.Element {
         <View style={{height: 90, minHeight: '30%'}}>
           <TopWaveContainer />
         </View>
-        <View style={{height: 600, width: '100%'}}>
+        <View style={{height: 'auto', width: '100%'}}>
           <BrandListContainer />
+        </View>
+        <View
+          style={{
+            height: 'auto',
+            minHeight: 500,
+            width: '100%',
+            paddingHorizontal: 22,
+            paddingTop: 19,
+          }}>
+          <OffersListContainer />
         </View>
       </AppLayout>
     </>
