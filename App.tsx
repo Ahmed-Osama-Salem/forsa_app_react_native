@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -12,11 +13,12 @@ import {
   // ScrollView,
   // StatusBar,
   StyleSheet,
-  Text,
   // useColorScheme,
   View,
 } from 'react-native';
 import HeaderSample from './app/components/modules/HeaderSample';
+import TopWaveContainer from './app/components/modules/TopWaveContainer';
+
 // import {
 //   Colors,
 //   DebugInstructions,
@@ -64,8 +66,8 @@ function App(): JSX.Element {
 
   return (
     <View style={styles.sectionContainer}>
-      <View style={styles.headerCanvas}>
-        <Text>ksdnflsdnflsds</Text>
+      <View style={{height: '50%'}}>
+        <TopWaveContainer />
       </View>
       <HeaderSample />
     </View>
@@ -78,25 +80,18 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'white',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  headerCanvas: {
-    width: '100%',
-    height: '30%',
-    backgroundColor: '#072040',
-    borderBottomRightRadius: 100,
-    borderBottomLeftRadius: 100,
-  },
+  // sectionTitle: {
+  //   fontSize: 24,
+  //   fontWeight: '600',
+  // },
+  // sectionDescription: {
+  //   marginTop: 8,
+  //   fontSize: 18,
+  //   fontWeight: '400',
+  // },
+  // highlight: {
+  //   fontWeight: '700',
+  // },
 });
 
 export default App;
