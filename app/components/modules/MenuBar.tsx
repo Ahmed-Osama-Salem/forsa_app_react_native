@@ -26,7 +26,7 @@ const menuStyles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 25,
     paddingVertical: 30,
-    // backgroundColor: 'red',
+    backgroundColor: '#072040',
   },
   LeftMenuItems: {
     flexDirection: 'row',

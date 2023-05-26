@@ -6,10 +6,6 @@ const TopOffer = () => {
     <View style={offerStyles.offersContainer}>
       <View style={offerStyles.offerImageContainer}>
         <View style={offerStyles.offerBorder}>
-          {/* <Image
-                resizeMode="cover"
-                source={require('../../../assets/offer.png')}
-              /> */}
           <ImageBackground
             style={offerStyles.offerBackGround}
             resizeMode="cover"
@@ -39,6 +35,7 @@ const offerStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     // backgroundColor: 'blue',
+
     position: 'absolute',
     top: '-10%',
   },
@@ -52,7 +49,7 @@ const offerStyles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#3EBDAC',
-    width: '80%',
+    width: '87%',
   },
   offerBackGround: {
     width: '100%',

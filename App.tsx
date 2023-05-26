@@ -12,12 +12,12 @@ import {
   // SafeAreaView,
   // ScrollView,
   // StatusBar,
-  StyleSheet,
   // useColorScheme,
   View,
 } from 'react-native';
-import HeaderSample from './app/components/modules/HeaderSample';
-import TopWaveContainer from './app/components/modules/TopWaveContainer';
+import TopWaveContainer from './app/components/sections/TopWaveContainer';
+import AppLayout from './app/components/layout/AppLayout';
+import BrandListContainer from './app/components/sections/BrandListContainer';
 
 // import {
 //   Colors,
@@ -65,33 +65,17 @@ function App(): JSX.Element {
   // };
 
   return (
-    <View style={styles.sectionContainer}>
-      <View style={{height: '50%'}}>
-        <TopWaveContainer />
-      </View>
-      <HeaderSample />
-    </View>
+    <>
+      <AppLayout>
+        <View style={{height: 90, minHeight: '30%'}}>
+          <TopWaveContainer />
+        </View>
+        <View style={{height: 600, width: '100%'}}>
+          <BrandListContainer />
+        </View>
+      </AppLayout>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'white',
-  },
-  // sectionTitle: {
-  //   fontSize: 24,
-  //   fontWeight: '600',
-  // },
-  // sectionDescription: {
-  //   marginTop: 8,
-  //   fontSize: 18,
-  //   fontWeight: '400',
-  // },
-  // highlight: {
-  //   fontWeight: '700',
-  // },
-});
 
 export default App;

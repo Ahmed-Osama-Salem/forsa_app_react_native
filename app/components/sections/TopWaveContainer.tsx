@@ -1,18 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/react-in-jsx-scope */
-import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Svg, Path} from 'react-native-svg';
-import MenuBar from './MenuBar';
-import TopOffer from './TopOffer';
+import TopOffer from '../modules/TopOffer';
 
 const TopWaveContainer = () => {
   return (
     <>
-      <View style={styles.canvasContainer}>
-        <MenuBar />
-      </View>
+      <View style={styles.canvasContainer}>{/* <Text>dd</Text> */}</View>
       <View style={styles.bottomWave}>
-        <Svg viewBox="0 0 1440 320">
+        <Svg style={{bottom: 40}} viewBox="0 0 1440 320">
           <Path
             fill="#072040"
             fill-opacity="1"
@@ -28,15 +25,13 @@ const TopWaveContainer = () => {
 const styles = StyleSheet.create({
   canvasContainer: {
     width: '100%',
-    height: '50%',
-    // maxHeight: '30%',
+    height: '36%',
     backgroundColor: '#072040',
   },
   bottomWave: {
     width: '100%',
-    // bottom: 0,
-    // backgroundColor: 'red',
-    height: '23%',
+    height: '70%',
+    // backgroundColor: 'blue',
     position: 'relative',
   },
 });
