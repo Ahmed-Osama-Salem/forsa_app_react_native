@@ -8,17 +8,8 @@
 
 import React from 'react';
 // import type {PropsWithChildren} from 'react';
-import {
-  // SafeAreaView,
-  // ScrollView,
-  // StatusBar,
-  // useColorScheme,
-  View,
-} from 'react-native';
-import TopWaveContainer from './app/components/sections/TopWaveContainer';
-import AppLayout from './app/components/layout/AppLayout';
-import BrandListContainer from './app/components/sections/BrandListContainer';
-import OffersListContainer from './app/components/sections/OffersListContainer';
+
+import Home from './app/screens/Home';
 
 // import {
 //   Colors,
@@ -67,24 +58,7 @@ function App(): JSX.Element {
 
   return (
     <>
-      <AppLayout>
-        <View style={{height: 200}}>
-          <TopWaveContainer />
-        </View>
-        <View style={{height: 'auto', width: '100%'}}>
-          <BrandListContainer />
-        </View>
-        <View
-          style={{
-            height: 'auto',
-            minHeight: 1000,
-            width: '100%',
-            paddingHorizontal: 22,
-            paddingTop: 19,
-          }}>
-          <OffersListContainer />
-        </View>
-      </AppLayout>
+      <Home />
     </>
   );
 }

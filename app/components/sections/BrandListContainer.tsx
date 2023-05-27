@@ -3,6 +3,7 @@ import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import BrandText from '../modules/brands/BrandText';
 import type {ImageSourcePropType} from 'react-native';
+import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 
 export const ProductCard = ({item}: {item: ImageSourcePropType}) => {
   return (
@@ -13,19 +14,19 @@ export const ProductCard = ({item}: {item: ImageSourcePropType}) => {
 };
 
 const BrandListContainer = () => {
-  const brandsTest = [
-    {id: 1, brand: 'All'},
-    {id: 2, brand: 'Fashion'},
-    {id: 3, brand: 'electronic'},
-    {id: 4, brand: 'clothes'},
-    {id: 5, brand: 'ddffsd'},
-    {id: 6, brand: 'fdsfs'},
-    {id: 7, brand: 'dlfds;f'},
-    {id: 4, brand: 'clothes'},
-    {id: 5, brand: 'ddffsd'},
-    {id: 6, brand: 'fdsfs'},
-    {id: 7, brand: 'dlfds;f'},
-  ];
+  // const brandsTest = [
+  //   {id: 1, brand: 'All'},
+  //   {id: 2, brand: 'Fashion'},
+  //   {id: 3, brand: 'electronic'},
+  //   {id: 4, brand: 'clothes'},
+  //   {id: 5, brand: 'ddffsd'},
+  //   {id: 6, brand: 'fdsfs'},
+  //   {id: 7, brand: 'dlfds;f'},
+  //   {id: 4, brand: 'clothes'},
+  //   {id: 5, brand: 'ddffsd'},
+  //   {id: 6, brand: 'fdsfs'},
+  //   {id: 7, brand: 'dlfds;f'},
+  // ];
 
   const productList = [
     {id: 1, image: require('../../../assets/product.png')},
@@ -35,11 +36,14 @@ const BrandListContainer = () => {
     {id: 5, image: require('../../../assets/product.png')},
     {id: 6, image: require('../../../assets/product.png')},
     {id: 7, image: require('../../../assets/product.png')},
-    {id: 4, image: require('../../../assets/product.png')},
-    {id: 5, image: require('../../../assets/product.png')},
-    {id: 6, image: require('../../../assets/product.png')},
-    {id: 7, image: require('../../../assets/product.png')},
+    {id: 8, image: require('../../../assets/product.png')},
+    {id: 9, image: require('../../../assets/product.png')},
+    {id: 10, image: require('../../../assets/product.png')},
+    {id: 11, image: require('../../../assets/product.png')},
   ];
+
+  const {sectorData} = useHandleGetSectors();
+  console.log(sectorData, 'dssd');
   return (
     <View style={brandStyles.brandContainer}>
       <View
@@ -53,19 +57,19 @@ const BrandListContainer = () => {
         <Text style={{fontSize: 12, color: '#072040'}}>View all</Text>
       </View>
       <FlatList
-        data={brandsTest}
+        data={sectorData}
         horizontal
         showsHorizontalScrollIndicator={false}
-        // keyExtractor={item => item.id as Key as number}
-        renderItem={({item, index}) => {
-          return <BrandText brandName={item.brand} key={index} />;
+        keyExtractor={item => item.value}
+        renderItem={({item}) => {
+          return <BrandText brandName={item.label} key={item.value} />;
         }}
       />
       <FlatList
         data={productList}
         horizontal
         showsHorizontalScrollIndicator={false}
-        // keyExtractor={item => item.id as Key as number}
+        keyExtractor={item => item.id.toFixed()}
         renderItem={({item, index}) => {
           return <ProductCard item={item.image} key={index} />;
         }}

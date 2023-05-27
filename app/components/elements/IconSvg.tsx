@@ -22,3 +22,37 @@ export const NotificationIcon = () => {
     </Svg>
   );
 };
+
+export const BrandSvgRight = () => {
+  return (
+    <Svg width="102" height="172" fill="none" viewBox="0 0 102 172">
+      <Path
+        fill="#3EBDAC"
+        d="M101.034 85.354l-82.691 86.353-17.9-17.352 62.784-69L.44 16.504 18.343.294l82.691 85.06z"
+      />
+    </Svg>
+  );
+};
+
+export const BrandSvgMiddel = () => {
+  return (
+    <Svg width="102" height="172" fill="none" viewBox="0 0 102 172">
+      <Path
+        fill="#3EBDAC"
+        fillOpacity="0.7"
+        d="M101.034 85.354l-82.691 86.353-17.9-17.352 62.784-69L.44 16.504 18.343.294l82.691 85.06z"
+      />
+    </Svg>
+  );
+};
+export const BrandSvgLeft = () => {
+  return (
+    <Svg width="102" height="172" fill="none" viewBox="0 0 102 172">
+      <Path
+        fill="#3EBDAC"
+        fillOpacity="0.3"
+        d="M101.034 85.354l-82.691 86.353-17.9-17.352 62.784-69L.44 16.504 18.343.294l82.691 85.06z"
+      />
+    </Svg>
+  );
+};
