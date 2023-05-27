@@ -9,6 +9,7 @@ const TopOffer = () => {
           <ImageBackground
             style={offerStyles.offerBackGround}
             resizeMode="cover"
+            borderRadius={20}
             source={require('../../../assets/offer.png')}>
             <View style={offerStyles.offerContentContainer}>
               <View style={offerStyles.nikeLogoContainr}>
@@ -54,7 +55,6 @@ const offerStyles = StyleSheet.create({
   offerBackGround: {
     width: '100%',
     height: '100%',
-    borderRadius: 20,
   },
   offerContentContainer: {
     height: '100%',

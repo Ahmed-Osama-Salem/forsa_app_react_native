@@ -68,7 +68,7 @@ function App(): JSX.Element {
   return (
     <>
       <AppLayout>
-        <View style={{height: 90, minHeight: '30%'}}>
+        <View style={{height: 200}}>
           <TopWaveContainer />
         </View>
         <View style={{height: 'auto', width: '100%'}}>
@@ -77,7 +77,7 @@ function App(): JSX.Element {
         <View
           style={{
             height: 'auto',
-            minHeight: 500,
+            minHeight: 1000,
             width: '100%',
             paddingHorizontal: 22,
             paddingTop: 19,
