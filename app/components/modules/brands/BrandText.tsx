@@ -5,6 +5,7 @@ import React from 'react';
 interface BrandTextProps {
   brandName: string;
   //   handelPress: (event: GestureResponderEvent) => void;
+  fetchBrands: () => Promise<void | object>;
 }
 
 const BrandText = (props: BrandTextProps) => {
@@ -18,7 +19,9 @@ const BrandText = (props: BrandTextProps) => {
         marginRight: 18,
         borderRadius: 6,
       }}>
-      <Text style={{padding: 5, fontSize: 14, color: 'black'}}>
+      <Text
+        onPress={() => props.fetchBrands()}
+        style={{padding: 5, fontSize: 14, color: 'black'}}>
         {props.brandName}
       </Text>
     </View>
