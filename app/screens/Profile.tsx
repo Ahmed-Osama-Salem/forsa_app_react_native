@@ -2,12 +2,23 @@
 import {Button, Image, Text, View} from 'react-native';
 import AppLayout from '../components/layout/AppLayout';
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
+import {useTranslation} from 'react-i18next';
+import type {i18n} from 'i18next';
 
-export const LanguagePicker = () => {
-  const [selectedValue, setSelectedValue] = useState('English');
+export const LanguagePicker = ({i18n}: {i18n: i18n}) => {
+  const [selectedValue, setSelectedValue] = useState('en');
 
+  useEffect(() => {
+    if (selectedValue === 'en') {
+      console.log(i18n.language);
+      setSelectedValue('en');
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('ar');
+    }
+  }, [selectedValue]);
   return (
     <View>
       <Picker
@@ -16,12 +27,12 @@ export const LanguagePicker = () => {
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
         <Picker.Item
           label="English"
-          value="English"
+          value="en"
           style={{fontSize: 18, color: 'black'}}
         />
         <Picker.Item
           label="Arabic"
-          value="Arabic"
+          value="ar"
           style={{fontSize: 18, color: 'black'}}
         />
       </Picker>
@@ -29,6 +40,7 @@ export const LanguagePicker = () => {
   );
 };
 const Profile = () => {
+  const {t, i18n} = useTranslation('translation');
   return (
     <AppLayout>
       <View
@@ -55,23 +67,27 @@ const Profile = () => {
             style={{width: 100, height: 80}}
           />
           <Text style={{fontSize: 21, fontWeight: '500', color: 'black'}}>
-            Mohamed Adel
+            {t('UserName')}
           </Text>
         </View>
         <Text style={{fontSize: 16, fontWeight: '400', color: 'black'}}>
-          active
+          {t('Status')}
         </Text>
-        <Button title="Share app" />
+        <Button title={t('ShareApp')} />
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <Text style={{fontSize: 18, fontWeight: '500', color: 'black'}}>
-            Change Langauge
+          <Text
+            // onPress={language => {
+            //   i18n.changeLanguage(language);
+            // }}
+            style={{fontSize: 18, fontWeight: '500', color: 'black'}}>
+            {t('ChangeLang')}
           </Text>
-          <LanguagePicker />
+          <LanguagePicker i18n={i18n} />
         </View>
       </View>
     </AppLayout>

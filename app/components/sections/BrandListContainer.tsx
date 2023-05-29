@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import BrandText from '../modules/brands/BrandText';
 import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
@@ -24,17 +24,33 @@ const BrandListContainer = () => {
   // console.log(sectorData, 'dssd');
   const {brandsData, fetchBrands} = useHandleGetBrands();
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(currentPage);
+
+  const flatListRef = useRef(null);
+
+  const handleFetchBySector = (value: string) => {
+    setCurrentPage(1); // Reset currentPage to 1
+    setSectorValue(value);
+    console.log(currentPage, 'sector pressed');
+    return fetchBrands(sectorValue, 1);
+  };
+
   useEffect(() => {
     // setCurrentPage(1);
-    fetchBrands(sectorValue, currentPage).then(data => {
-      if (!data.next === null) {
-        setCurrentPage(-1);
-      }
-      console.log(data.next);
-    });
+    fetchBrands(sectorValue, currentPage);
+    // .then(data => {
+    //   if (data.next === null) {
+    //     setCurrentPage(1);
+    //   }
+    //   console.log(data.next);
+    // });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectorValue, currentPage]);
+  console.log('====================================');
+  console.log(currentPage, 'scroll pages');
+  console.log('====================================');
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [sectorValue]);
 
   return (
     <View style={brandStyles.brandContainer}>
@@ -61,9 +77,11 @@ const BrandListContainer = () => {
               key={item.value}
               sectorValue={sectorValue}
               fetchBrands={() => {
-                setSectorValue(item.value);
-                setCurrentPage(1);
-                fetchBrands(item.value, 1);
+                // setCurrentPage(1);
+                // setSectorValue(item.value);
+                // console.log(currentPage, 'sector pressed');
+                // fetchBrands(sectorValue, 1);
+                return handleFetchBySector(item.value);
               }}
             />
           );
@@ -75,8 +93,10 @@ const BrandListContainer = () => {
         onEndReachedThreshold={0.3}
         onEndReached={() => {
           // console.log(currentPage);
-          setCurrentPage(currentPage + 1);
+          setCurrentPage(prev => prev + 1);
         }}
+        ref={flatListRef}
+        initialNumToRender={5}
         showsHorizontalScrollIndicator={false}
         keyExtractor={item => item.id.toFixed()}
         renderItem={({item}) => {

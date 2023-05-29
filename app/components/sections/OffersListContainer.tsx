@@ -1,9 +1,22 @@
 /* eslint-disable react-native/no-inline-styles */
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import OfferProductCard from '../modules/offers/OfferProductCard';
-import {OfferPromise} from '../../hooks/requests/useHandelGetOffers';
-const OffersListContainer = ({offerData}: {offerData: OfferPromise[]}) => {
+import {useHandleGetOffers} from '../../hooks/requests/useHandelGetOffers';
+// {offerData}: {offerData: OfferPromise[]}
+const OffersListContainer = () => {
+  const {offerData, fetchOffers} = useHandleGetOffers();
+  const [pageNumber, setPageNumber] = useState(1);
+  const [showSeeMore, setShowSeeMore] = useState(false);
+
+  useEffect(() => {
+    fetchOffers(pageNumber).then(data => {
+      if (data.next === null) {
+        setShowSeeMore(true);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNumber]);
   return (
     <View style={offerListStyles.offerContainer}>
       <Text style={offerListStyles.offerTitle}>Featured offers</Text>
@@ -43,6 +56,12 @@ const OffersListContainer = ({offerData}: {offerData: OfferPromise[]}) => {
           {offerData.map(item => {
             return <OfferProductCard item={item} key={item.id} />;
           })}
+          {showSeeMore ? null : (
+            <Button
+              title="see more"
+              onPress={() => setPageNumber(prev => prev + 1)}
+            />
+          )}
         </View>
       </SafeAreaView>
     </View>
