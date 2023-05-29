@@ -25,7 +25,8 @@ const menuStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 25,
-    paddingVertical: 30,
+    paddingTop: 30,
+    paddingBottom: 15,
     backgroundColor: '#072040',
   },
   LeftMenuItems: {

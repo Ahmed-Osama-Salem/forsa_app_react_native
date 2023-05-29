@@ -28,8 +28,6 @@ const Home = () => {
       console.log('End of scroll reached');
 
       setPageNumber(pageNumber + 1);
-      // fetchOffers(pageNumber);
-      // Trigger your end of scroll event here
     }
   };
 
@@ -66,8 +64,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     width: '100%',
     height: '100%',
-    // minHeight: 380,
-    // backgroundColor: 'red',
     flex: 1,
   },
 });

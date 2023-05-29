@@ -9,6 +9,7 @@ interface BrandsPromise {
 
 export const useHandleGetBrands = () => {
   const [brandsData, setBrandsData] = useState<BrandsPromise[]>([]);
+
   const fetchBrands = async (id: string) => {
     return requestMaker({
       endpoint: `stores/get_brands?sector=${id}`,

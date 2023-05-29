@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MenuBar from '../modules/MenuBar';
 import {ReactNode} from 'react';
 import AppTabs from '../modules/AppTabs';
@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     width: '100%',
     height: '100%',
-    // overflow: 'scroll',
-    // backgroundColor: 'blue',
-    // flex: 1,
   },
 });
 

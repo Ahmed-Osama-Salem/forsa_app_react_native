@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import BrandText from '../modules/brands/BrandText';
 import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
@@ -12,7 +12,7 @@ export const ProductCard = ({item}: {item: string}) => {
     <View style={brandStyles.productCardContainer}>
       <Image
         resizeMode="cover"
-        source={{uri: `${item || null}`}}
+        source={{uri: `${item || undefined}`}}
         borderRadius={10}
         style={{width: '100%', height: '100%'}}
       />
@@ -25,7 +25,15 @@ const BrandListContainer = () => {
   // console.log(sectorData, 'dssd');
   const {brandsData, fetchBrands} = useHandleGetBrands();
   // console.log(brandsData, 'dataaa state');
-
+  // console.log(, 'sadbaskjbdshak');
+  const [sectorValue, setSectorValue] = useState('1');
+  // console.log('====================================');
+  // console.log(sectorValue);
+  // console.log('====================================');
+  useEffect(() => {
+    fetchBrands('1');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <View style={brandStyles.brandContainer}>
       <View
@@ -47,8 +55,13 @@ const BrandListContainer = () => {
           return (
             <BrandText
               brandName={item.label}
+              value={item.value}
               key={item.value}
-              fetchBrands={() => fetchBrands(item.value)}
+              sectorValue={sectorValue}
+              fetchBrands={() => {
+                setSectorValue(item.value);
+                fetchBrands(item.value);
+              }}
             />
           );
         }}
