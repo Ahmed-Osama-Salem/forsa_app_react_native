@@ -7,15 +7,18 @@
  */
 
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+
 // import type {PropsWithChildren} from 'react';
 
-import Home from './app/screens/Home';
+// import Home from './app/screens/Home';
+import BottomTabNavigator from './navigations/BottomTabNavigator';
 
 function App(): JSX.Element {
   return (
-    <>
-      <Home />
-    </>
+    <NavigationContainer>
+      <BottomTabNavigator />
+    </NavigationContainer>
   );
 }
 

@@ -14,7 +14,7 @@ const AppLayout = (props: AppLayoutProps) => {
     <View style={styles.sectionContainer}>
       <MenuBar />
       {children}
-      <AppTabs />
+      {/* <AppTabs /> */}
     </View>
   );
 };
