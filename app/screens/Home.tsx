@@ -43,7 +43,7 @@ const Home = () => {
       <ScrollView
         ref={scrollViewRef}
         onScroll={handleScroll}
-        scrollEventThrottle={16}
+        scrollEventThrottle={40}
         style={styles.sectionContainer}>
         <View style={{height: 200, zIndex: 2}}>
           <TopWaveContainer />
@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
   sectionContainer: {
     width: '100%',
     height: '100%',
+    // backgroundColor: 'blue',
+    // marginBottom: 5,
     flex: 1,
   },
 });
