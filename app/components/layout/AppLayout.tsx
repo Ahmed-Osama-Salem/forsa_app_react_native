@@ -1,7 +1,7 @@
 import {StyleSheet, View} from 'react-native';
 import MenuBar from '../modules/MenuBar';
 import {ReactNode} from 'react';
-import AppTabs from '../modules/AppTabs';
+// import AppTabs from '../modules/AppTabs';
 import React from 'react';
 
 interface AppLayoutProps {
