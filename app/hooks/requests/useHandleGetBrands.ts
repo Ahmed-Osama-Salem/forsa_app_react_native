@@ -10,13 +10,17 @@ interface BrandsPromise {
 export const useHandleGetBrands = () => {
   const [brandsData, setBrandsData] = useState<BrandsPromise[]>([]);
 
-  const fetchBrands = async (id: string) => {
+  const fetchBrands = async (id: string, page: number) => {
     return requestMaker({
-      endpoint: `stores/get_brands?sector=${id}`,
+      endpoint: `stores/get_brands?page=${page}&sector=${id}`,
       method: 'GET',
     })
       .then(({data}) => {
-        setBrandsData(data?.results as BrandsPromise[]);
+        if (page > 1) {
+          setBrandsData([...brandsData, ...(data?.results as BrandsPromise[])]);
+        } else {
+          setBrandsData(data?.results as BrandsPromise[]);
+        }
         // console.log(data, 'brands');
 
         return data;

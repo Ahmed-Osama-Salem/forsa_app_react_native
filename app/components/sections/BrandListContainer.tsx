@@ -6,8 +6,6 @@ import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
 
 export const ProductCard = ({item}: {item: string}) => {
-  console.log(item);
-
   return (
     <View style={brandStyles.productCardContainer}>
       <Image
@@ -22,18 +20,22 @@ export const ProductCard = ({item}: {item: string}) => {
 
 const BrandListContainer = () => {
   const {sectorData} = useHandleGetSectors();
+  const [sectorValue, setSectorValue] = useState('1');
   // console.log(sectorData, 'dssd');
   const {brandsData, fetchBrands} = useHandleGetBrands();
-  // console.log(brandsData, 'dataaa state');
-  // console.log(, 'sadbaskjbdshak');
-  const [sectorValue, setSectorValue] = useState('1');
-  // console.log('====================================');
-  // console.log(sectorValue);
-  // console.log('====================================');
+  const [currentPage, setCurrentPage] = useState(1);
+  console.log(currentPage);
   useEffect(() => {
-    fetchBrands('1');
+    // setCurrentPage(1);
+    fetchBrands(sectorValue, currentPage).then(data => {
+      if (!data.next === null) {
+        setCurrentPage(-1);
+      }
+      console.log(data.next);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sectorValue, currentPage]);
+
   return (
     <View style={brandStyles.brandContainer}>
       <View
@@ -60,7 +62,8 @@ const BrandListContainer = () => {
               sectorValue={sectorValue}
               fetchBrands={() => {
                 setSectorValue(item.value);
-                fetchBrands(item.value);
+                setCurrentPage(1);
+                fetchBrands(item.value, 1);
               }}
             />
           );
@@ -69,6 +72,11 @@ const BrandListContainer = () => {
       <FlatList
         data={brandsData}
         horizontal
+        onEndReachedThreshold={0.3}
+        onEndReached={() => {
+          // console.log(currentPage);
+          setCurrentPage(currentPage + 1);
+        }}
         showsHorizontalScrollIndicator={false}
         keyExtractor={item => item.id.toFixed()}
         renderItem={({item}) => {

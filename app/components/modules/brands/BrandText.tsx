@@ -19,7 +19,11 @@ const BrandText = (props: BrandTextProps) => {
       }>
       <Text
         onPress={() => props.fetchBrands()}
-        style={{padding: 5, fontSize: 14, color: 'black'}}>
+        style={
+          props.value === props.sectorValue
+            ? brandTextStyles.activeBandText
+            : brandTextStyles.noneActiveBrandText
+        }>
         {props.brandName}
       </Text>
     </View>
@@ -43,6 +47,9 @@ const brandTextStyles = StyleSheet.create({
     marginRight: 18,
     borderRadius: 6,
   },
+
+  activeBandText: {padding: 5, fontSize: 14, color: 'white'},
+  noneActiveBrandText: {padding: 5, fontSize: 14, color: 'black'},
 });
 
 export default BrandText;
