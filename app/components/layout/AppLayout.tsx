@@ -13,7 +13,7 @@ const AppLayout = (props: AppLayoutProps) => {
   return (
     <View style={styles.sectionContainer}>
       <MenuBar />
-      <ScrollView style={styles.sectionContainer}>{children}</ScrollView>
+      {children}
       <AppTabs />
     </View>
   );
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
   sectionContainer: {
     width: '100%',
     height: '100%',
-    // backgroundColor: 'red',
+    // overflow: 'scroll',
+    // backgroundColor: 'blue',
     // flex: 1,
   },
 });

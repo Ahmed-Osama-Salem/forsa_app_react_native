@@ -16,7 +16,7 @@ export const useHandleGetBrands = () => {
     })
       .then(({data}) => {
         setBrandsData(data?.results as BrandsPromise[]);
-        console.log(data, 'brands');
+        // console.log(data, 'brands');
 
         return data;
       })

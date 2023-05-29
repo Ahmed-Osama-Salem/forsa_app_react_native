@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import requestMaker from '../../utils/requestMaker';
 
-interface SectorPromise {
+export interface SectorPromise {
   label: string;
   value: string;
 }
