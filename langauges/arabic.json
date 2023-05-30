@@ -2,7 +2,15 @@
   "translation": {
     "UserName": "محمد عادل",
     "Status": "نشط",
-    "ChangeLang": "تغير اللغة",
-    "ShareApp": "مشاركه البرنامج"
+    "Change language": "تغير اللغة",
+    "Share App": "مشاركه البرنامج",
+    "Featured Offers": "العروض المميزة",
+    "Top brands in retail": "أفضل العلامات التجارية",
+    "View all": "عرض الكل",
+    "Check out latest offers": "تحقق من أحدث العروض",
+    "Home": "الرئيسية",
+    "Profile": "المستخدم",
+    "English": "إنجليزي",
+    "Arabic": "العربية"
   }
 }

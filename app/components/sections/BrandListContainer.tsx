@@ -4,6 +4,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import BrandText from '../modules/brands/BrandText';
 import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
+import {useTranslation} from 'react-i18next';
 
 export const ProductCard = ({item}: {item: string}) => {
   return (
@@ -24,7 +25,7 @@ const BrandListContainer = () => {
   // console.log(sectorData, 'dssd');
   const {brandsData, fetchBrands} = useHandleGetBrands();
   const [currentPage, setCurrentPage] = useState(1);
-
+  const {t} = useTranslation('translation');
   const flatListRef = useRef(null);
 
   const handleFetchBySector = (value: string) => {
@@ -61,8 +62,8 @@ const BrandListContainer = () => {
           alignItems: 'center',
           paddingRight: 20,
         }}>
-        <Text style={brandStyles.brandHeader}>Top brands in retail</Text>
-        <Text style={{fontSize: 12, color: '#072040'}}>View all</Text>
+        <Text style={brandStyles.brandHeader}>{t('Top brands in retail')}</Text>
+        <Text style={{fontSize: 12, color: '#072040'}}>{t('View all')}</Text>
       </View>
       <FlatList
         data={sectorData}
@@ -77,10 +78,6 @@ const BrandListContainer = () => {
               key={item.value}
               sectorValue={sectorValue}
               fetchBrands={() => {
-                // setCurrentPage(1);
-                // setSectorValue(item.value);
-                // console.log(currentPage, 'sector pressed');
-                // fetchBrands(sectorValue, 1);
                 return handleFetchBySector(item.value);
               }}
             />

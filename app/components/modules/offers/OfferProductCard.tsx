@@ -1,4 +1,5 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {OfferPromise} from '../../../hooks/requests/useHandelGetOffers';
 const OfferProductCard = ({item}: {item: OfferPromise}) => {
@@ -8,7 +9,7 @@ const OfferProductCard = ({item}: {item: OfferPromise}) => {
     setShowContent(!showContent);
   };
   return (
-    <View style={offerCardStyles.cardBox}>
+    <SafeAreaView style={offerCardStyles.cardBox}>
       <Image
         resizeMode="contain"
         source={{uri: `${item.brand.thumbnail || null}`}}
@@ -29,8 +30,34 @@ const OfferProductCard = ({item}: {item: OfferPromise}) => {
           onPress={handleCardPress}>
           {item.brand.title}
         </Text>
+        {showContent ? (
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 6,
+              padding: 4,
+            }}>
+            <Text style={{fontSize: 12, fontWeight: '400'}}>
+              {item.description}
+            </Text>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: '300',
+                paddingHorizontal: 4,
+                textAlign: 'center',
+              }}>
+              0% interest on MacBooks For 18 months from Forsa
+            </Text>
+            <Text style={{fontSize: 14, fontWeight: '500'}}>
+              Price: {item.price}
+            </Text>
+          </View>
+        ) : null}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 const offerCardStyles = StyleSheet.create({
@@ -49,7 +76,7 @@ const offerCardStyles = StyleSheet.create({
   },
   cardContentBox: {
     width: '100%',
-    height: 60,
+    height: 70,
     backgroundColor: 'white',
     position: 'absolute',
     bottom: 0,
@@ -57,7 +84,7 @@ const offerCardStyles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 14,
     paddingTop: 12,
-    // elevation: 2,
+    elevation: 2,
   },
   fullContentBox: {
     width: '100%',

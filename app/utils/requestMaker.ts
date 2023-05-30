@@ -39,6 +39,7 @@ const requestMaker = async <T extends object | undefined>({
   const requestConfig = {
     headers: {
       Accept: 'application/json',
+      'X-Localization': 'ar',
     },
   };
   const requestMethod = method.toLowerCase() as Method;

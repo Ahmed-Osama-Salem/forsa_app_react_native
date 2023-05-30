@@ -9,7 +9,7 @@ const TopWaveContainer = () => {
     <>
       <View style={styles.canvasContainer}>{/* <Text>dd</Text> */}</View>
       <View style={styles.bottomWave}>
-        <Svg style={{bottom: 40}} viewBox="0 0 1440 320">
+        <Svg style={{bottom: 30}} viewBox="0 0 1440 320">
           <Path
             fill="#072040"
             fill-opacity="1"

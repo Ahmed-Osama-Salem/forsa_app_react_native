@@ -3,11 +3,13 @@ import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import OfferProductCard from '../modules/offers/OfferProductCard';
 import {useHandleGetOffers} from '../../hooks/requests/useHandelGetOffers';
+import {useTranslation} from 'react-i18next';
 // {offerData}: {offerData: OfferPromise[]}
 const OffersListContainer = () => {
   const {offerData, fetchOffers} = useHandleGetOffers();
   const [pageNumber, setPageNumber] = useState(1);
   const [showSeeMore, setShowSeeMore] = useState(false);
+  const {t} = useTranslation('translation');
 
   useEffect(() => {
     fetchOffers(pageNumber).then(data => {
@@ -19,7 +21,7 @@ const OffersListContainer = () => {
   }, [pageNumber]);
   return (
     <View style={offerListStyles.offerContainer}>
-      <Text style={offerListStyles.offerTitle}>Featured offers</Text>
+      <Text style={offerListStyles.offerTitle}>{t('Featured Offers')}</Text>
 
       <SafeAreaView>
         <View style={offerListStyles.cardsContainer}>

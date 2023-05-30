@@ -1,7 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
+import {useTranslation} from 'react-i18next';
 import {View, StyleSheet, Text, Image, ImageBackground} from 'react-native';
 
 const TopOffer = () => {
+  const {t} = useTranslation('translation');
+
   return (
     <View style={offerStyles.offersContainer}>
       <View style={offerStyles.offerImageContainer}>
@@ -18,7 +21,9 @@ const TopOffer = () => {
                   source={require('../../../assets/nike.png')}
                 />
               </View>
-              <Text style={offerStyles.textStyle}>Check out latest offers</Text>
+              <Text style={offerStyles.textStyle}>
+                {t('Check out latest offers')}
+              </Text>
             </View>
           </ImageBackground>
         </View>

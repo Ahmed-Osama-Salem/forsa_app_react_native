@@ -2,7 +2,15 @@
   "translation": {
     "UserName": "Moahemd Adel",
     "Status": "online",
-    "ChangeLang": "Change language",
-    "ShareApp": "Share App"
+    "Change language": "Change language",
+    "Share App": "Share App",
+    "Featured Offers": "Featured offers",
+    "Top brands in retail": "Top brands in retail",
+    "View all": "View all",
+    "Check out latest offers": "Check out latest offers",
+    "Home": "Home",
+    "Profile": "Profile",
+    "English": "English",
+    "Arabic": "Arabic"
   }
 }

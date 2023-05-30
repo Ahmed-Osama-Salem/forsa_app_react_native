@@ -6,10 +6,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
+  const {t} = useTranslation('translation');
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -18,13 +21,13 @@ const BottomTabNavigator = () => {
         tabBarInactiveTintColor: '#C9C9C9',
         tabBarStyle: appTabStyles.appTabsContainer,
         tabBarLabelStyle: appTabStyles.noneActiveTab,
-        headerBackgroundContainerStyle: {backgroundColor: '#072040'},
+        headerShown: false,
       }}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: t('Home') as string,
           tabBarIcon: ({focused}) => (
             <AntDesign
               name="home"
@@ -38,7 +41,7 @@ const BottomTabNavigator = () => {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: t('Profile') as string,
           tabBarIcon: ({focused}) => (
             <AntDesign
               name="user"
