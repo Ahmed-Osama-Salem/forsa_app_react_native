@@ -6,6 +6,7 @@ import React, {useEffect, useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
 import {useTranslation} from 'react-i18next';
 import type {TFunction, i18n} from 'i18next';
+import {useShareMessage} from '../hooks/useShareMessage';
 
 export const LanguagePicker = ({
   i18n,
@@ -45,6 +46,7 @@ export const LanguagePicker = ({
   );
 };
 const Profile = () => {
+  const {onShareMessage} = useShareMessage();
   const {t, i18n} = useTranslation('translation');
   return (
     <AppLayout>
@@ -78,7 +80,10 @@ const Profile = () => {
         <Text style={{fontSize: 16, fontWeight: '400', color: 'black'}}>
           {t('Status')}
         </Text>
-        <Button title={t('Share App')} />
+        <Button
+          title={t('Share App')}
+          onPress={() => onShareMessage('hello form react native')}
+        />
         <View
           style={{
             flexDirection: 'row',
