@@ -1,24 +1,24 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 import OfferProductCard from '../modules/offers/OfferProductCard';
-import {useHandleGetOffers} from '../../hooks/requests/useHandelGetOffers';
+import {OfferPromise} from '../../hooks/requests/useHandelGetOffers';
 import {useTranslation} from 'react-i18next';
 // {offerData}: {offerData: OfferPromise[]}
-const OffersListContainer = () => {
-  const {offerData, fetchOffers} = useHandleGetOffers();
-  const [pageNumber, setPageNumber] = useState(1);
-  const [showSeeMore, setShowSeeMore] = useState(false);
+const OffersListContainer = ({offerData}: {offerData: OfferPromise[]}) => {
+  // const {offerData, fetchOffers} = useHandleGetOffers();
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [showSeeMore, setShowSeeMore] = useState(false);
   const {t} = useTranslation('translation');
 
-  useEffect(() => {
-    fetchOffers(pageNumber).then(data => {
-      if (data.next === null) {
-        setShowSeeMore(true);
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber]);
+  // useEffect(() => {
+  //   fetchOffers(pageNumber).then(data => {
+  //     if (data.next === null) {
+  //       setShowSeeMore(true);
+  //     }
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [pageNumber]);
   return (
     <View style={offerListStyles.offerContainer}>
       <Text style={offerListStyles.offerTitle}>{t('Featured Offers')}</Text>
@@ -58,12 +58,12 @@ const OffersListContainer = () => {
           {offerData.map(item => {
             return <OfferProductCard item={item} key={item.id} />;
           })}
-          {showSeeMore ? null : (
+          {/* {showSeeMore ? null : (
             <Button
               title="see more"
-              onPress={() => setPageNumber(prev => prev + 1)}
+              // onPress={() => setPageNumber(prev => prev + 1)}
             />
-          )}
+          )} */}
         </View>
       </SafeAreaView>
     </View>
