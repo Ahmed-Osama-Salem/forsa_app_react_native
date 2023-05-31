@@ -13,6 +13,7 @@
     "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
+    "@testing-library/react-native": "^12.1.2",
     "axios": "^1.4.0",
     "i18next": "^22.5.0",
     "moti": "^0.25.3",

@@ -24,6 +24,7 @@ export const OfferSlide = ({item}: {item: NewOfferListData}) => {
       style={offerStyles.offerBackGround}
       resizeMode="cover"
       borderRadius={20}
+      testID="offer-slide"
       source={{uri: item.offerBackground}}>
       <View style={offerStyles.offerContentContainer}>
         <View style={offerStyles.nikeLogoContainr}>

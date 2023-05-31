@@ -45,9 +45,6 @@ const Home = () => {
             setTimeout(() => {
               setPageNumber(pageNumber + 1);
             }, 2000);
-            console.log('====================================');
-            console.log('fetch now iam bottom', pageNumber);
-            console.log('====================================');
           }
         }}
         scrollEventThrottle={400}

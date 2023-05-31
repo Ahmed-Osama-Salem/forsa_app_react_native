@@ -30,7 +30,7 @@ const BrandText = (props: BrandTextProps) => {
   );
 };
 
-const brandTextStyles = StyleSheet.create({
+export const brandTextStyles = StyleSheet.create({
   activeBrandBox: {
     flexDirection: 'row',
     gap: 10,

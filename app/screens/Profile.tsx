@@ -7,7 +7,6 @@ import {Picker} from '@react-native-picker/picker';
 import {useTranslation} from 'react-i18next';
 import type {TFunction, i18n} from 'i18next';
 import {useShareMessage} from '../hooks/useShareMessage';
-import CurveSvg from '../components/elements/IconSvg';
 
 export const LanguagePicker = ({
   i18n,

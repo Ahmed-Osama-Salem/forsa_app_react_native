@@ -9,13 +9,7 @@ interface AppLayoutProps {
 
 const AppLayout = (props: AppLayoutProps) => {
   const {children} = props;
-  return (
-    <View style={styles.sectionContainer}>
-      {/* <MenuBar /> */}
-      {children}
-      {/* <AppTabs /> */}
-    </View>
-  );
+  return <View style={styles.sectionContainer}>{children}</View>;
 };
 const styles = StyleSheet.create({
   sectionContainer: {
