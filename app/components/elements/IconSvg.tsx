@@ -1,4 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
+import {Dimensions} from 'react-native';
 import {Svg, Path} from 'react-native-svg';
 
 export const HeartIcon = () => {
@@ -56,3 +57,14 @@ export const BrandSvgLeft = () => {
     </Svg>
   );
 };
+const {width} = Dimensions.get('window');
+
+const CurveSvg = () => (
+  <Svg width={width} height={130} viewBox="0 0 375 130" fill="none">
+    <Path
+      d="M174 130C436.335 130 649 42.4717 649 -65.5C649 -173.472 436.335 -261 174 -261C-88.3353 -261 -301 -173.472 -301 -65.5C-301 42.4717 -88.3353 130 174 130Z"
+      fill="#072040"
+    />
+  </Svg>
+);
+export default CurveSvg;

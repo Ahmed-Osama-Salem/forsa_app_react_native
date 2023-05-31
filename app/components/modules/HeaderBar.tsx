@@ -4,20 +4,22 @@ import {
   View,
   Text,
   SafeAreaView,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
-import {HeartIcon, NotificationIcon} from '../elements/IconSvg';
+import CurveSvg, {HeartIcon, NotificationIcon} from '../elements/IconSvg';
 interface MenuBarProps {
   screen: string | null;
 }
 
+const {width} = Dimensions.get('window');
 const HeaderBar = (props: MenuBarProps) => {
   return (
     <View style={headerBarStyles.headerBar}>
-      <ImageBackground
+      {/* <ImageBackground
         style={headerBarStyles.offerBackGround}
         resizeMode="cover"
-        borderRadius={20}
+        // borderRadius={20}
         source={require('../../../assets/curve.png')}>
         <SafeAreaView style={headerBarStyles.areaContainer}>
           <Text style={headerBarStyles.screenText}>{props.screen}</Text>
@@ -26,7 +28,26 @@ const HeaderBar = (props: MenuBarProps) => {
             <NotificationIcon />
           </View>
         </SafeAreaView>
-      </ImageBackground>
+      </ImageBackground> */}
+      <View style={{width: width, position: 'relative'}}>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 50,
+            left: '30%',
+            zIndex: 100,
+          }}>
+          <View style={headerBarStyles.areaContainer}>
+            <Text style={headerBarStyles.screenText}>{props.screen}</Text>
+            <View style={headerBarStyles.RightMenuItems}>
+              <HeartIcon />
+              <NotificationIcon />
+            </View>
+          </View>
+        </View>
+
+        <CurveSvg />
+      </View>
     </View>
   );
 };
@@ -34,7 +55,7 @@ const HeaderBar = (props: MenuBarProps) => {
 export default HeaderBar;
 
 const headerBarStyles = StyleSheet.create({
-  headerBar: {position: 'relative', top: -10},
+  headerBar: {position: 'relative', width: '100%'},
   offerBackGround: {
     height: 140,
     width: '100%',
@@ -56,7 +77,7 @@ const headerBarStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 67,
-    justifyContent: 'flex-end',
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    // paddingHorizontal: 5,
   },
 });

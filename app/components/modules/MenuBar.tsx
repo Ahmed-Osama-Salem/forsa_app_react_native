@@ -44,7 +44,7 @@ const menuStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     //   backgroundColor: 'blue',
-    width: '53%',
+    width: '55%',
     justifyContent: 'space-between',
   },
   RightMenuItems: {
