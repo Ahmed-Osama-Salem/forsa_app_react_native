@@ -7,6 +7,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import MenuBar from '../app/components/modules/MenuBar';
+import HeaderBar from '../app/components/modules/HeaderBar';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +23,7 @@ const BottomTabNavigator = () => {
         tabBarInactiveTintColor: '#C9C9C9',
         tabBarStyle: appTabStyles.appTabsContainer,
         tabBarLabelStyle: appTabStyles.noneActiveTab,
-        headerShown: false,
+        // headerShown: false,
       }}>
       <Tab.Screen
         name="Home"
@@ -35,6 +37,8 @@ const BottomTabNavigator = () => {
               color={focused ? '#072040' : '#C9C9C9'}
             />
           ),
+
+          header: () => <MenuBar screen={null} />,
         }}
       />
       <Tab.Screen
@@ -49,6 +53,7 @@ const BottomTabNavigator = () => {
               color={focused ? '#072040' : '#C9C9C9'}
             />
           ),
+          header: () => <HeaderBar screen={'Profile'} />,
         }}
       />
     </Tab.Navigator>
@@ -74,6 +79,27 @@ const appTabStyles = StyleSheet.create({
   noneActiveTab: {
     fontSize: 16,
     // color: '#C9C9C9',
+  },
+  menuContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 25,
+    paddingTop: 30,
+    paddingBottom: 15,
+    backgroundColor: '#072040',
+  },
+  LeftMenuItems: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    //   backgroundColor: 'blue',
+    width: '53%',
+    justifyContent: 'space-between',
+  },
+  RightMenuItems: {
+    flexDirection: 'row',
+    gap: 14,
   },
 });
 

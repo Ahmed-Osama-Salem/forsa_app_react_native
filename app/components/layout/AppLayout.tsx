@@ -1,5 +1,4 @@
 import {StyleSheet, View} from 'react-native';
-import MenuBar from '../modules/MenuBar';
 import {ReactNode} from 'react';
 // import AppTabs from '../modules/AppTabs';
 import React from 'react';
@@ -12,7 +11,7 @@ const AppLayout = (props: AppLayoutProps) => {
   const {children} = props;
   return (
     <View style={styles.sectionContainer}>
-      <MenuBar />
+      {/* <MenuBar /> */}
       {children}
       {/* <AppTabs /> */}
     </View>

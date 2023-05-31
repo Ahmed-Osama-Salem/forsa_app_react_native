@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
@@ -31,26 +32,22 @@ const BrandListContainer = () => {
   const handleFetchBySector = (value: string) => {
     setCurrentPage(1); // Reset currentPage to 1
     setSectorValue(value);
-    console.log(currentPage, 'sector pressed');
-    return fetchBrands(sectorValue, 1);
+    console.log(currentPage, 'sector pressed//////');
+
+    fetchBrands(value, currentPage);
   };
 
   useEffect(() => {
-    // setCurrentPage(1);
     fetchBrands(sectorValue, currentPage);
-    // .then(data => {
-    //   if (data.next === null) {
-    //     setCurrentPage(1);
-    //   }
-    //   console.log(data.next);
-    // });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sectorValue, currentPage]);
+  }, [currentPage]);
   console.log('====================================');
   console.log(currentPage, 'scroll pages');
   console.log('====================================');
+
   useEffect(() => {
-    setCurrentPage(1);
+    if (sectorValue) {
+      setCurrentPage(1);
+    }
   }, [sectorValue]);
 
   return (
@@ -90,6 +87,7 @@ const BrandListContainer = () => {
         onEndReachedThreshold={0.3}
         onEndReached={() => {
           // console.log(currentPage);
+
           setCurrentPage(prev => prev + 1);
         }}
         ref={flatListRef}
