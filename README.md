@@ -40,8 +40,8 @@
 <!-- ![Screen Shot](https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png) -->
 
 <p align="center">
-  <img src="https://i.ibb.co/Hp2yZKL/Screenshot-1685568277.png" width="400" height="300"/>
-  <img src="https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png" width="400" height="300"/> 
+  <img src="https://i.ibb.co/Hp2yZKL/Screenshot-1685568277.png" />
+  <img src="https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png" /> 
 </p>
 
 This is a great Full stack project [Crud system] available on GitHub, however, I build this system based on Contracting company Table sheets,
