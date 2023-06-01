@@ -1,11 +1,4 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  View,
-  Text,
-  SafeAreaView,
-  Dimensions,
-} from 'react-native';
+import {StyleSheet, View, Text, Dimensions} from 'react-native';
 import React from 'react';
 import CurveSvg, {HeartIcon, NotificationIcon} from '../elements/IconSvg';
 interface MenuBarProps {
@@ -16,27 +9,8 @@ const {width} = Dimensions.get('window');
 const HeaderBar = (props: MenuBarProps) => {
   return (
     <View style={headerBarStyles.headerBar}>
-      {/* <ImageBackground
-        style={headerBarStyles.offerBackGround}
-        resizeMode="cover"
-        // borderRadius={20}
-        source={require('../../../assets/curve.png')}>
-        <SafeAreaView style={headerBarStyles.areaContainer}>
-          <Text style={headerBarStyles.screenText}>{props.screen}</Text>
-          <View style={headerBarStyles.RightMenuItems}>
-            <HeartIcon />
-            <NotificationIcon />
-          </View>
-        </SafeAreaView>
-      </ImageBackground> */}
-      <View style={{width: width, position: 'relative'}}>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 50,
-            left: '30%',
-            zIndex: 100,
-          }}>
+      <View style={headerBarStyles.mainView}>
+        <View style={headerBarStyles.mainViewContent}>
           <View style={headerBarStyles.areaContainer}>
             <Text style={headerBarStyles.screenText}>{props.screen}</Text>
             <View style={headerBarStyles.RightMenuItems}>
@@ -45,7 +19,6 @@ const HeaderBar = (props: MenuBarProps) => {
             </View>
           </View>
         </View>
-
         <CurveSvg />
       </View>
     </View>
@@ -71,6 +44,16 @@ const headerBarStyles = StyleSheet.create({
   RightMenuItems: {
     flexDirection: 'row',
     gap: 14,
+  },
+  mainView: {
+    width: width,
+    position: 'relative',
+  },
+  mainViewContent: {
+    position: 'absolute',
+    bottom: 50,
+    left: '30%',
+    zIndex: 100,
   },
   areaContainer: {
     width: '100%',

@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   bottomWave: {
     width: '100%',
     height: '70%',
-    // backgroundColor: 'blue',
     position: 'relative',
   },
 });

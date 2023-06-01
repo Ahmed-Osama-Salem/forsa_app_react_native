@@ -19,16 +19,17 @@ export interface OfferPromise {
 
 export const useHandleGetOffers = () => {
   const [offerData, setOfferData] = useState<OfferPromise[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchOffers = async (page: number) => {
-    // setPageNumber('1');
+    setIsLoading(true);
     return requestMaker({
       endpoint: `stores/get_offers/?page=${page}`,
       method: 'GET',
     })
       .then(({data}) => {
         setOfferData([...offerData, ...(data?.results as OfferPromise[])]);
-        // setOfferData(data?.results as OfferPromise[]);
+        setIsLoading(false);
         return data;
       })
       .catch(err => {
@@ -37,5 +38,5 @@ export const useHandleGetOffers = () => {
       });
   };
 
-  return {offerData, fetchOffers};
+  return {offerData, fetchOffers, isLoading, setIsLoading};
 };

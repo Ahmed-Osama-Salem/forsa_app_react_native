@@ -1,69 +1,45 @@
 /* eslint-disable react-native/no-inline-styles */
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import OfferProductCard from '../modules/offers/OfferProductCard';
 import {OfferPromise} from '../../hooks/requests/useHandelGetOffers';
 import {useTranslation} from 'react-i18next';
 // {offerData}: {offerData: OfferPromise[]}
-const OffersListContainer = ({offerData}: {offerData: OfferPromise[]}) => {
-  // const {offerData, fetchOffers} = useHandleGetOffers();
-  // const [pageNumber, setPageNumber] = useState(1);
-  // const [showSeeMore, setShowSeeMore] = useState(false);
+const OffersListContainer = ({
+  offerData,
+  isLoading,
+}: {
+  offerData: OfferPromise[];
+  isLoading: boolean;
+}) => {
   const {t} = useTranslation('translation');
 
-  // useEffect(() => {
-  //   fetchOffers(pageNumber).then(data => {
-  //     if (data.next === null) {
-  //       setShowSeeMore(true);
-  //     }
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [pageNumber]);
   return (
     <View style={offerListStyles.offerContainer}>
       <Text style={offerListStyles.offerTitle}>{t('Featured Offers')}</Text>
 
       <SafeAreaView>
         <View style={offerListStyles.cardsContainer}>
-          {/* <FlatList
-            data={offerData}
-            showsVerticalScrollIndicator={true}
-            numColumns={2}
-            contentContainerStyle={{
-              gap: 25,
-              paddingHorizontal: 22,
-              marginBottom: 100,
-            }}
-            // style={{backgroundColor: 'gray'}}
-            columnWrapperStyle={{gap: 20}}
-            keyExtractor={item => item.id as unknown as string}
-            renderItem={({item}) => {
-              return <OfferProductCard item={item} key={item.id} />;
-            }}
-            onEndReachedThreshold={0.3}
-            // onMomentumScrollBegin={() => {
-            //   console.log('MomentumScrollBegin');
-            // }}
-            onEndReached={() => {
-              console.log('====================================');
-              console.log('this end');
-              console.log('====================================');
-            }}
-            ListFooterComponent={
-              <View>
-              <Text>dssdcdclsdc;dsl</Text>
-              </View>
-            }
-          /> */}
           {offerData.map(item => {
             return <OfferProductCard item={item} key={item.id} />;
           })}
-          {/* {showSeeMore ? null : (
-            <Button
-              title="see more"
-              // onPress={() => setPageNumber(prev => prev + 1)}
-            />
-          )} */}
+
+          {isLoading ? (
+            <View
+              style={{
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}>
+              <ActivityIndicator size="large" color="#3EBDAC" />
+            </View>
+          ) : null}
         </View>
       </SafeAreaView>
     </View>
