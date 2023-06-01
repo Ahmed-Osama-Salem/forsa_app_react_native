@@ -36,7 +36,8 @@
 
 ## About The Project
 
-![Screen Shot](https://i.ibb.co/LPJ0mmT/Screenshot-from-2023-01-13-21-37-38.png)
+![Screen Shot](https://i.ibb.co/Hp2yZKL/Screenshot-1685568277.png)
+![Screen Shot](https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png)
 
 This is a great Full stack project [Crud system] available on GitHub, however, I build this system based on Contracting company Table sheets,
 and suitable for any company that thier jobs based on sheets and note every daily,weekly,mounthly state and provide Reports Prints,
