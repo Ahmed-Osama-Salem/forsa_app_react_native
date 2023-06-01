@@ -58,7 +58,7 @@ suitable for Android and ios devices.
 
  <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=vscode,ts,reactnative,redux,jest" />
+    <img src="https://skillicons.dev/icons?i=vscode,ts,react-native,redux,jest" />
   </a>
 </p>
 
