@@ -36,82 +36,31 @@
 
 ## About The Project
 
-<!-- ![Screen Shot](https://i.ibb.co/Hp2yZKL/Screenshot-1685568277.png) -->
-<!-- ![Screen Shot](https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png) -->
-
 <p align="center">
   <img src="https://i.ibb.co/Hp2yZKL/Screenshot-1685568277.png" width="400" height="900"/>
   <img src="https://i.ibb.co/NLfghPQ/Screenshot-1685568281.png" width="400" height="900"/> 
 </p>
 
-This is a great Full stack project [Crud system] available on GitHub, however, I build this system based on Contracting company Table sheets,
-and suitable for any company that thier jobs based on sheets and note every daily,weekly,mounthly state and provide Reports Prints,
-storing data of table in the database with mongoodb and storing user data.
+This mobile app available on GitHub, however, I build this project by using React native and Typescript.
+suitable for Android and ios devices.
 
 ## Features:
 
-- Three times faster than the previous system.
-- Build by Using new technologies Next js , TypeScript to provide better
-  web with no errors.
-- Simple and easy Form to fill.
-- Responsive design for XL , Lg , md and mobile.
-- More smooth in using the table than the previous system.
-- You can Create , Edit , Delete in simple way with no confilicts inside
-  table.
-- Print your weekly , mounthly Sheet with simple click.
-- Filter your table by using a smart Date Filters.
-- Statistics Widgets & charts thats follow your Changes of table Cells
-  and help you to provide a professional experience.
-- Dark and Light mode for better reading your docs.
-- Notifications for every action and feedback.
-
-## Project cycle
-
-Sign up Page
-![Screen Shot](https://i.ibb.co/k2dLMhs/Screenshot-from-2023-01-18-21-04-56.png)
-
-This page for creating a new user or employee to have access on the system by posting [name,email,phone,password,job and upload image] , i handle this process in backend [server] using express then store users data with password hashed in mongoodb.
-
-Sign in Page
-![Screen Shot](https://i.ibb.co/ft7HyTD/auth.png)
-
-After creating new account and successfully signed up , user will route to the login page to login the system by his email and password ,i handle this process in backend [server] by firstly checking the email if exist in database then will check the matching of password if matched
-you have successfully sign in.
-
-![Screen Shot](https://i.ibb.co/0hVmJY0/darkprofile.png)
-
-Finally , user can access dashboard system and check his profile and starting creating data.
-
-Post data | Create
-<br/>
-<img align="center" src="https://i.ibb.co/0cnDDVq/create.gif" />
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+- Responsive design for Android and ios devices.
+- smooth scrolling.
+- featching data and filter brands based on sector with pagination on swipe.
+- featching offers with pagination on vertical swipe.
+- functionality to change app language [ English,Arabic ].
+- functionality ro Share app.
+- Test some components by jest and reactnative testing library.
 
 ## Built With
 
  <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=vscode,tailwind,ts,react,nextjs,redux,jest,nodejs,express,mongodb" />
+    <img src="https://skillicons.dev/icons?i=vscode,ts,reactnative,redux,jest" />
   </a>
 </p>
-
-## This project for
-
-this project for every front-end dev that Starting his first journey in backend and want be full-stack dev
-to increase his knowledge in :
-
-- HTTP Requests [GET , POST , PUT , DELETE].
-- Handle and creating Api's.
-- How to build full cycle of authintication and authorization system
-  in client and server side.
-- express and nodejs to creating your server and handle requests and connecting to database.
-- Learn how to use database like mongoodb.
-- improve your coding skills by using typescript.
-- improve your knowledge of React framework by using Nextjs and understand server side and Api handlers.
-- state mangement with Redux Toolkit.
-- How to improve your React Components and create Dynamic components.
-- improve your styling skills by using tailwind css classes.
 
 ## Getting Started
 
