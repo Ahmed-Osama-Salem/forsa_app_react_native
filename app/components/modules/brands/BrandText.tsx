@@ -42,7 +42,6 @@ export const brandTextStyles = StyleSheet.create({
   nonActiveBrandBox: {
     flexDirection: 'row',
     gap: 10,
-    // backgroundColor: '#3EBDAC',
     marginVertical: 10,
     marginRight: 18,
     borderRadius: 6,

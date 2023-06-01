@@ -21,12 +21,10 @@ export const useHandleGetBrands = () => {
         } else {
           setBrandsData(data?.results as BrandsPromise[]);
         }
-        // console.log(data, 'brands');
 
         return data;
       })
       .catch(err => {
-        console.log(err);
         return err;
       });
   };

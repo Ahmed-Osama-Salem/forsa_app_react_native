@@ -23,7 +23,6 @@ const BottomTabNavigator = () => {
         tabBarInactiveTintColor: '#C9C9C9',
         tabBarStyle: appTabStyles.appTabsContainer,
         tabBarLabelStyle: appTabStyles.noneActiveTab,
-        // headerShown: false,
       }}>
       <Tab.Screen
         name="Home"
@@ -78,7 +77,6 @@ const appTabStyles = StyleSheet.create({
   },
   noneActiveTab: {
     fontSize: 16,
-    // color: '#C9C9C9',
   },
   menuContainer: {
     width: '100%',
@@ -93,7 +91,6 @@ const appTabStyles = StyleSheet.create({
   LeftMenuItems: {
     flexDirection: 'row',
     alignItems: 'center',
-    //   backgroundColor: 'blue',
     width: '53%',
     justifyContent: 'space-between',
   },
