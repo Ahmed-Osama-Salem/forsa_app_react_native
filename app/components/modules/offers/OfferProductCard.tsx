@@ -36,26 +36,11 @@ const OfferProductCard = ({item}: {item: OfferPromise}) => {
           {item.brand.title}
         </Text>
         {showContent ? (
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 6,
-              padding: 4,
-            }}>
+          <View style={offerCardStyles.showContentContainer}>
             <Text style={{fontSize: 12, fontWeight: '400'}}>
               {item.description}
             </Text>
-            <Text
-              style={{
-                fontSize: 12,
-                fontWeight: '300',
-                paddingHorizontal: 4,
-                textAlign: 'center',
-              }}>
-              0% interest on MacBooks For 18 months from Forsa
-            </Text>
+
             <Text style={{fontSize: 14, fontWeight: '500'}}>
               Price: {item.price}
             </Text>
@@ -101,6 +86,13 @@ const offerCardStyles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 14,
     paddingTop: 12,
+  },
+  showContentContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 6,
+    padding: 4,
   },
 });
 export default OfferProductCard;

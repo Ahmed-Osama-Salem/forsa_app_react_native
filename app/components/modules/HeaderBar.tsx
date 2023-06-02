@@ -52,15 +52,14 @@ const headerBarStyles = StyleSheet.create({
   mainViewContent: {
     position: 'absolute',
     bottom: 50,
-    left: '30%',
+    left: '28%',
     zIndex: 100,
   },
   areaContainer: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 67,
+    gap: 50,
     justifyContent: 'center',
-    // paddingHorizontal: 5,
   },
 });

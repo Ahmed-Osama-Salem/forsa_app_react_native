@@ -30,12 +30,7 @@ const OffersListContainer = ({
           })}
 
           {isLoading ? (
-            <View
-              style={{
-                width: '100%',
-                flexDirection: 'row',
-                justifyContent: 'center',
-              }}>
+            <View style={offerListStyles.loaderContaier}>
               <ActivityIndicator size="large" color="#3EBDAC" />
             </View>
           ) : null}
@@ -68,6 +63,11 @@ const offerListStyles = StyleSheet.create({
     paddingHorizontal: 22,
     gap: 22,
     marginBottom: 100,
+  },
+  loaderContaier: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 });
 
