@@ -9,6 +9,8 @@ import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import MenuBar from '../app/components/modules/MenuBar';
 import HeaderBar from '../app/components/modules/HeaderBar';
+import Offers from '../app/screens/Offers';
+import Retail from '../app/screens/Retail';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,6 +43,38 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
+        name="Retail"
+        component={Retail}
+        options={{
+          tabBarLabel: t('Retails') as string,
+          tabBarIcon: ({focused}) => (
+            <AntDesign
+              name="tagso"
+              size={30}
+              color={focused ? '#072040' : '#C9C9C9'}
+            />
+          ),
+
+          header: () => <HeaderBar screen={t('Retails')} />,
+        }}
+      />
+      <Tab.Screen
+        name="Offers"
+        component={Offers}
+        options={{
+          tabBarLabel: t('Offers') as string,
+          tabBarIcon: ({focused}) => (
+            <AntDesign
+              name="staro"
+              size={30}
+              color={focused ? '#072040' : '#C9C9C9'}
+            />
+          ),
+
+          header: () => <HeaderBar screen={t('Offers')} />,
+        }}
+      />
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -52,7 +86,7 @@ const BottomTabNavigator = () => {
               color={focused ? '#072040' : '#C9C9C9'}
             />
           ),
-          header: () => <HeaderBar screen={'Profile'} />,
+          header: () => <HeaderBar screen={t('Profile')} />,
         }}
       />
     </Tab.Navigator>

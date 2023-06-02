@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
   BrandSvgLeft,
   BrandSvgMiddel,
@@ -8,12 +8,16 @@ import {
 
 const BrandBackground = () => {
   return (
-    <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+    <View style={Styles.containerOfSvgs}>
       <BrandSvgLeft />
       <BrandSvgMiddel />
       <BrandSvgRight />
     </View>
   );
 };
+
+const Styles = StyleSheet.create({
+  containerOfSvgs: {flexDirection: 'row', justifyContent: 'center'},
+});
 
 export default BrandBackground;

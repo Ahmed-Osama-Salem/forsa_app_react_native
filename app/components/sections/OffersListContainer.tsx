@@ -10,7 +10,6 @@ import React from 'react';
 import OfferProductCard from '../modules/offers/OfferProductCard';
 import {OfferPromise} from '../../hooks/requests/useHandelGetOffers';
 import {useTranslation} from 'react-i18next';
-// {offerData}: {offerData: OfferPromise[]}
 const OffersListContainer = ({
   offerData,
   isLoading,

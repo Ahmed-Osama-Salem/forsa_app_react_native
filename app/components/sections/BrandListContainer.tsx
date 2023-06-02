@@ -8,11 +8,14 @@ import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
 import {useTranslation} from 'react-i18next';
 
 export const ProductCard = ({item}: {item: string}) => {
+  const noItemImage =
+    'https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
+
   return (
     <View style={brandStyles.productCardContainer}>
       <Image
         resizeMode="cover"
-        source={{uri: `${item || undefined}`}}
+        source={{uri: `${item || noItemImage}`}}
         borderRadius={10}
         style={{width: '100%', height: '100%'}}
       />
@@ -23,7 +26,6 @@ export const ProductCard = ({item}: {item: string}) => {
 const BrandListContainer = () => {
   const {sectorData} = useHandleGetSectors();
   const [sectorValue, setSectorValue] = useState('1');
-  // console.log(sectorData, 'dssd');
   const {brandsData, fetchBrands} = useHandleGetBrands();
   const [currentPage, setCurrentPage] = useState(1);
   const {t} = useTranslation('translation');
@@ -32,23 +34,12 @@ const BrandListContainer = () => {
   const handleFetchBySector = (value: string) => {
     setCurrentPage(1); // Reset currentPage to 1
     setSectorValue(value);
-    console.log(currentPage, 'sector pressed//////');
-
     fetchBrands(value, currentPage);
   };
 
   useEffect(() => {
     fetchBrands(sectorValue, currentPage);
   }, [currentPage]);
-  console.log('====================================');
-  console.log(currentPage, 'scroll pages');
-  console.log('====================================');
-
-  useEffect(() => {
-    if (sectorValue) {
-      setCurrentPage(1);
-    }
-  }, [sectorValue]);
 
   return (
     <View style={brandStyles.brandContainer}>
@@ -86,8 +77,6 @@ const BrandListContainer = () => {
         horizontal
         onEndReachedThreshold={0.3}
         onEndReached={() => {
-          // console.log(currentPage);
-
           setCurrentPage(prev => prev + 1);
         }}
         ref={flatListRef}
