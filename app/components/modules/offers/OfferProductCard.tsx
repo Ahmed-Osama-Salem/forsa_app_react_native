@@ -9,7 +9,7 @@ const OfferProductCard = ({item}: {item: OfferPromise}) => {
     setShowContent(!showContent);
   };
   return (
-    <SafeAreaView style={offerCardStyles.cardBox}>
+    <SafeAreaView testID="offer-card" style={offerCardStyles.cardBox}>
       <Image
         resizeMode="contain"
         source={{
