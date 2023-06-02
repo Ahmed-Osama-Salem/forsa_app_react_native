@@ -37,8 +37,8 @@
 ## Screenshots
 
 <p align="center">
-  <img src="https://pasteboard.co/B4T9N3idNvHG.png" width="400" height="900"/>
-  <img src="https://pasteboard.co/pPb7SEnR33EH.png" width="400" height="900"/> 
+  <img src="https://gcdnb.pbrd.co/images/B4T9N3idNvHG.png?o=1" width="400" height="900"/>
+  <img src="https://gcdnb.pbrd.co/images/pPb7SEnR33EH.png?o=1" width="400" height="900"/> 
 </p>
 
 This mobile app available on GitHub, however, I build this project by using React native and Typescript.
