@@ -100,10 +100,10 @@ const appTabStyles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
     shadowColor: '#000',
-    shadowOffset: {width: 4, height: -100},
-    shadowOpacity: 0.8,
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.1,
     shadowRadius: 3,
-    elevation: 30,
+    elevation: 2,
   },
   tabItem: {
     flexDirection: 'column',
