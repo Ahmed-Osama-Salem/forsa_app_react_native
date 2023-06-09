@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import requestMaker from '../../utils/requestMaker';
 
-interface BrandsPromise {
+export interface BrandsPromise {
   id: number;
   title: string;
   thumbnail: string;

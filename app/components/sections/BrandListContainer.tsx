@@ -1,16 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import BrandText from '../modules/brands/BrandText';
 import {useHandleGetSectors} from '../../hooks/requests/useHandleGetSectors';
 import {useHandleGetBrands} from '../../hooks/requests/useHandleGetBrands';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 
+export const noItemImage =
+  'https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
 export const ProductCard = ({item}: {item: string}) => {
-  const noItemImage =
-    'https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
-
   return (
     <View style={brandStyles.productCardContainer}>
       <Image
@@ -30,6 +37,12 @@ const BrandListContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const {t} = useTranslation('translation');
   const flatListRef = useRef(null);
+
+  const navigation = useNavigation();
+
+  const handleNavigate = () => {
+    navigation.navigate('BrandScreen');
+  };
 
   const handleFetchBySector = (value: string) => {
     setCurrentPage(1); // Reset currentPage to 1
@@ -51,7 +64,9 @@ const BrandListContainer = () => {
           paddingRight: 20,
         }}>
         <Text style={brandStyles.brandHeader}>{t('Top brands in retail')}</Text>
-        <Text style={{fontSize: 12, color: '#072040'}}>{t('View all')}</Text>
+        <TouchableOpacity onPress={handleNavigate}>
+          <Text style={{fontSize: 12, color: '#072040'}}>{t('View all')}</Text>
+        </TouchableOpacity>
       </View>
       <FlatList
         data={sectorData}
