@@ -10,7 +10,7 @@ function DrawerNavigator() {
     <Drawer.Navigator
       initialRouteName="BottomTabNavigator"
       screenOptions={{headerShown: false}}>
-      <Drawer.Screen name="app" component={BottomTabNavigator} />
+      <Drawer.Screen name="overview" component={BottomTabNavigator} />
     </Drawer.Navigator>
   );
 }

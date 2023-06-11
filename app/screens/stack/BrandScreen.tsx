@@ -50,6 +50,12 @@ const BrandScreen = () => {
   const {allbrandsData, fetchAllBrands, isLoading} = useHandleGetAllBrands();
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  const handleLoadMore = () => {
+    if (!isLoading) {
+      setCurrentPage(prev => prev + 1);
+    }
+  };
+
   useEffect(() => {
     fetchAllBrands(currentPage);
   }, [currentPage]);
@@ -59,11 +65,8 @@ const BrandScreen = () => {
       <Text>Select your interested brand</Text>
       <FlatList
         data={allbrandsData}
-        onEndReachedThreshold={0.1}
-        onEndReached={() => {
-          setCurrentPage(prev => prev + 1);
-          console.log('end');
-        }}
+        onEndReachedThreshold={0.3}
+        onEndReached={handleLoadMore}
         numColumns={2}
         initialNumToRender={6}
         showsVerticalScrollIndicator={false}
@@ -72,6 +75,7 @@ const BrandScreen = () => {
           return <BrandItem item={item} index={index} />;
         }}
         ListFooterComponent={isLoading ? <ReachEndFooter /> : null}
+        extraData={isLoading}
       />
     </SafeAreaView>
   );
